@@ -30,4 +30,18 @@ class AuthServiceProvider extends ServiceProvider
 
         //
     }
+    /**
+     * 移除給定的任務。
+     *
+     * @param  Request  $request
+     * @param  Task  $task
+     * @return Response
+     */
+    public function destroy(Request $request, Task $task)
+    {
+        $task->delete();
+        return redirect('/tasks');
+        // 刪除該任務...
+    }
+
 }
