@@ -39,8 +39,9 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function destroy(Request $request, Task $task)
     {
-        $task->delete();
-        return redirect('/tasks');
+        $this->authorize('destroy', $task);
+        /*$task->delete();
+        return redirect('/tasks');*/
         // 刪除該任務...
     }
 
