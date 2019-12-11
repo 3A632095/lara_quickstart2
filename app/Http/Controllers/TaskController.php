@@ -29,7 +29,10 @@ class TaskController extends Controller
         // 取得登入之User的所有tasks
 
         //測試 認證->使用者->任務->get
-        $tasks= auth()->user()->tasks()->get();
+        //$tasks= auth()->user()->tasks()->get();
+
+        //取得登入之User的所有tasks_2
+        $tasks=Auth::user()->tasks;
 
         return view('tasks.index', [
             'tasks' => $tasks,
