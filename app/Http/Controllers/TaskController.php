@@ -19,7 +19,13 @@ class TaskController extends Controller
     }
     public function index(Request $request)
     {
-        return view('tasks.index');
+        //return view('tasks.index');
+        //顯示已有的任務
+        //由 DB 擷取使用者所有任務
+        $tasks = Task::where('user_id', $request->user()->id)->get();
+        return view('tasks.index', [
+            'tasks' => $tasks,
+        ]);
     }
 
     public function store(Request $request)
